@@ -1,0 +1,34 @@
+create table departments (
+	dept_no float(10) not null,
+	dept_name varchar not null);
+
+create table dept_emp (
+	id serial primary key,
+	emp_no int not null,
+	dept_no varchar(10) not null);
+		
+create table dept_manger (
+	id serial primary key,
+	dept_no varchar(10) not null,
+	emp_no int not null);
+	
+create table employees (
+	id serial primary key,
+	emp_no int not null,
+	emp_title_id varchar(10),
+	birth_date date,
+	first_name varchar(30),
+	last_name varchar(30),
+	sex char(1),
+	hire_date date);
+
+create table salaries (
+	id serial primary key,
+	emp_no int,
+	salary int
+	);
+	
+create table titles (
+	id serial primary key,
+	title_id varchar(5),
+	title varchar(30));

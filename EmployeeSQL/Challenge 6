@@ -1,0 +1,2 @@
+/* sales_dept = employees.emp_no, employees.last_name, employees.first_name, departments_dept_name
+	notes: employees.emp_no JOIN dept_emp.emp_no; dept_emp.dept_no JOIN departments.dept_no*/

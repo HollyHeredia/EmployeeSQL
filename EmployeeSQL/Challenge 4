@@ -1,0 +1,2 @@
+/*emp_dept = employees.emp_no, employees.last_name, employees.first_name, departments.dept_name
+	Notes: common columns - employees.emp_no JOIN dept_emp.emp_no, departments.dept_no JOIN dept_emp.dept_no*/

@@ -1,0 +1,2 @@
+/* hire_1986 = employees.first_name, employees.last_name, employees.hire_date
+	Note: only for employees hired in the year 1986*/
