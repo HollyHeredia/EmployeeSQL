@@ -1,2 +1,10 @@
 /* hercules_b = employees.first_name, employees.last_name, employees.sex
-	Notes: first_name = hercules, last_name = b*/
+	Notes: first_name = hercules, last_name = b% */
+	
+create view hercules_b as
+	select employees.first_name, employees.last_name, employees.sex
+	from employees
+	where employees.first_name = 'Hercules' 
+	and employees.last_name like 'B%';
+	
+select * from hercules_b;

@@ -1,2 +1,19 @@
-/* sales_dept = employees.emp_no, employees.last_name, employees.first_name, departments_dept_name
-	notes: employees.emp_no JOIN dept_emp.emp_no; dept_emp.dept_no JOIN departments.dept_no*/
+/* sales_dept = employees.emp_no, employees.last_name, employees.first_name, departments.dept_name
+	notes: employees.emp_no JOIN dept_emp.emp_no; dept_emp.dept_no JOIN departments.dept_no
+	departments.dept_name = sales*/
+	
+create view sales_dept as
+	select employees.emp_no, employees.last_name, employees.first_name, departments.dept_name
+	from dept_emp
+	join employees 
+		on (dept_emp.emp_no=employees.emp_no)
+	join departments
+		on (dept_emp.dept_no=departments.dept_no);
+	
+select * from sales_dept	
+	where dept_name='Sales';
+
+
+	
+
+	

@@ -1,16 +1,20 @@
 create table departments (
 	dept_no float(10) not null,
 	dept_name varchar not null);
+	
+select * from departments;
 
 create table dept_emp (
 	id serial primary key,
 	emp_no int not null,
 	dept_no varchar(10) not null);
 		
-create table dept_manger (
+create table dept_manager (
 	id serial primary key,
 	dept_no varchar(10) not null,
 	emp_no int not null);
+	
+select * from dept_manager;
 	
 create table employees (
 	id serial,

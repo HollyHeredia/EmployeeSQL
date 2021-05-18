@@ -1,2 +1,10 @@
 /* Emp_Salaries = employees.emp_no, employees.last_name, employees.first_name, employees.sex, salaries.salary
 	Merge employees and salaries on emp_no*/
+
+create view employee_salaries as(
+	Select employees.emp_no, employees.last_name, employees.first_name, employees.sex, salaries.salary
+	From employees 
+	Inner join salaries on
+	employees.emp_no=salaries.emp_no);
+	
+select * from employee_salaries;

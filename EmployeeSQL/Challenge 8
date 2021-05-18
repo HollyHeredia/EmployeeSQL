@@ -1,2 +1,10 @@
 /* count_last_name = Count of employees.last_name
 	note: list in decending order*/
+	
+create view count_last_name as
+	select last_name, count(last_name) as count_last_name
+	from employees
+	group by last_name
+	order by count_last_name desc;
+	
+select * from count_last_name;
