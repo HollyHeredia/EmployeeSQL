@@ -2,6 +2,12 @@ create table departments (
 	dept_no float(10) not null,
 	dept_name varchar not null);
 	
+	Alter Table departments
+	Add column id serial primary key;
+	Add column dept_emp_id int
+	PRIMARY KEY (id),
+	FOREIGN KEY (dept_emp_id) REFERENCES dept_emp(id);
+	
 select * from departments;
 
 create table dept_emp (
@@ -25,11 +31,7 @@ create table employees (
 	last_name varchar(30) not null,
 	sex char(1) not null,
 	hire_date date not null);
-
-Alter Table tablename
-	Add column salary_id;
-	PRIMARY KEY (emp_no),
-    FOREIGN KEY (customer_id) REFERENCES customer(id)
+	
 
 create table salaries (
 	id serial primary key,
@@ -37,7 +39,12 @@ create table salaries (
 	salary int
 	);
 
-select * from salaries
+alter table salaries
+	Add column dept_emp_id int
+	PRIMARY KEY (id),
+	FOREIGN KEY (dept_emp_id) REFERENCES dept_emp(id);
+	
+select * from salaries;
 
 create table titles (
 	id serial,
