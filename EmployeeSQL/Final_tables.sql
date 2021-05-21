@@ -42,20 +42,34 @@ CREATE TABLE "titles" (
      )
 );
 
-ALTER TABLE "departments" ADD CONSTRAINT "fk_departments_dept_no" FOREIGN KEY("id")
-REFERENCES "dept_manager" ("id");
+-- adding in primary keys as ids after the tables were created
+alter table departments
+add primary key (dept_no);
+																								
+ALTER TABLE employees
+add primary key (emp_no);
 
-ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "dept_manager" ("emp_no");
+ALTER TABLE titles
+add primary key (title_id);
 
-ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_dept_no" FOREIGN KEY("dept_no")
-REFERENCES "departments" ("dept_no");
+--adding foreign keys
+ALTER TABLE dept_emp 
+ADD FOREIGN KEY(emp_no)
+REFERENCES employees(emp_no);
 
-ALTER TABLE "dept_manager" ADD CONSTRAINT "fk_dept_manager_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "employees" ("emp_no");
+ALTER TABLE dept_emp 
+ADD FOREIGN KEY(dept_no)
+REFERENCES departments (dept_no);
 
-ALTER TABLE "employees" ADD CONSTRAINT "fk_employees_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "salaries" ("emp_no");
+ALTER TABLE dept_manager
+ADD FOREIGN KEY(dept_no)
+REFERENCES departments (dept_no);
 
-ALTER TABLE "titles" ADD CONSTRAINT "fk_titles_title_id" FOREIGN KEY("title_id")
-REFERENCES "employees" ("emp_title_id");
+ALTER TABLE dept_manager
+ADD FOREIGN KEY(emp_no)
+REFERENCES employees(emp_no);
+
+ALTER TABLE salaries
+ADD FOREIGN KEY(emp_no)
+REFERENCES employees(emp_no);
+
